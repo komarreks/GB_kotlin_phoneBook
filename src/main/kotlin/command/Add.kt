@@ -1,4 +1,8 @@
-open class Add(private var commandLine: String) :Command {
+package command
+
+import model.PhoneBook
+
+open class Add(private var commandLine: String) : Command {
 
     override fun isValid(): Boolean {
         val lines = commandLine.split(" ")

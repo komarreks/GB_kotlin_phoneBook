@@ -1,4 +1,6 @@
-class Help(var valide:Boolean = true) :Command {
+package command
+
+class Help(var valide:Boolean = true) : Command {
     override fun isValid(): Boolean {
         return valide
     }

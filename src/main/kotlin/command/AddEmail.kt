@@ -1,3 +1,7 @@
+package command
+
+import model.PhoneBook
+
 class AddEmail(private var commandLine: String): Add(commandLine) {
     override fun isValid(): Boolean {
         val lines = commandLine.split(" ")

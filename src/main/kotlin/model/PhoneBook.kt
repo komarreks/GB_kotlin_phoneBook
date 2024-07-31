@@ -1,7 +1,7 @@
-import com.sun.jdi.Value
+package model
 
 class PhoneBook {
-    private var persons: MutableMap<String,Person> = mutableMapOf()
+    private var persons: MutableMap<String, Person> = mutableMapOf()
 
     fun findValues(value: String): List<String>{
         var findered = mutableListOf<String>()
@@ -12,6 +12,10 @@ class PhoneBook {
         }
 
         return findered
+    }
+
+    fun getMapAsList(): List<Person> {
+        return persons.values.toList()
     }
 
     fun updateRecord(name: String, phone: String, email: String){

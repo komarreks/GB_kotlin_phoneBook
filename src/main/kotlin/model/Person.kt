@@ -1,3 +1,5 @@
+package model
+
 import java.lang.StringBuilder
 
 data class Person(private val name: String){
@@ -35,6 +37,14 @@ data class Person(private val name: String){
 
     fun addEmail(email: String){
         emails.add(email)
+    }
+
+    fun getPhonesAsList(): List<String>{
+        return phones.toList()
+    }
+
+    fun getEmailsAsList(): List<String>{
+        return emails.toList()
     }
 
     fun havePhone(phone: String): Boolean{

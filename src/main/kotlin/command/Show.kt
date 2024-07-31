@@ -1,4 +1,8 @@
-class Show(private var name: String?):Command {
+package command
+
+import model.PhoneBook
+
+class Show(private var name: String?): Command {
     override fun isValid(): Boolean {
         return true
     }

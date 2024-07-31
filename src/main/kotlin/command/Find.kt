@@ -1,4 +1,8 @@
-class Find(private var value: String?):Command {
+package command
+
+import model.PhoneBook
+
+class Find(private var value: String?): Command {
     override fun isValid(): Boolean {
         return value is String
     }

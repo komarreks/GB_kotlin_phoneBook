@@ -1,3 +1,6 @@
+import command.*
+import model.PhoneBook
+
 fun main(args: Array<String>) {
     val phoneBook = createPhoneBook()
     while (true){
@@ -16,26 +19,28 @@ fun main(args: Array<String>) {
                 is AddPhone -> command.execute(phoneBook)
                 is AddEmail -> command.execute(phoneBook)
                 is Find -> command.find(phoneBook)
-                }
+                is Export -> command.save(phoneBook)
+            }
         }else
             Help(false).printHelp("Команда не распознана")
     }
 }
 
-fun readCommand(commandLine: String?):Command{
+fun readCommand(commandLine: String?): Command {
     val command = commandLine?.split(" ")?.get(0)?.lowercase()
     return when(command){
         "exit" -> Exit()
         "help" -> Help()
-        //"add" -> Add(commandLine) //устаревшая
+        //"add" -> command.Add(commandLine) //устаревшая
         "show" -> Show(commandLine?.split(" ")?.get(1))
         "addphone" -> AddPhone(commandLine)
         "addemail" -> AddEmail(commandLine)
         "find" -> Find(commandLine?.split(" ")?.get(1))
+        "export" -> Export(commandLine.split(" ")[1] + ".json")
         else -> Help(false)
     }
 }
 
-fun createPhoneBook(): PhoneBook{
+fun createPhoneBook(): PhoneBook {
     return PhoneBook();
 }
